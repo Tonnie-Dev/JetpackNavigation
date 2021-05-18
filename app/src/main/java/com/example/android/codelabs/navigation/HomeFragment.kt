@@ -39,14 +39,11 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-
         //Set NavOptions
         val options = navOptions {
 
             anim {
-
-
+                //animations specifies on xml
                 enter = R.anim.slide_in_left
                 exit = R.anim.slide_out_left
                 popEnter = R.anim.slide_in_left
@@ -56,12 +53,13 @@ class HomeFragment : Fragment() {
 
         // Set an OnClickListener, using Navigation.createNavigateOnClickListener()
         val button = view.findViewById<Button>(R.id.navigate_destination_button)
-
         button?.setOnClickListener {
 
             //the 2nd Arg is the args argument
-            this.findNavController().navigate(R.id.flow_step_one_dest, null, options)
+            this.findNavController().navigate(R.id.flow_step_one_dest, null)
         }
+
+
 
         /*view.findViewById<Button>(R.id.navigate_destination_button)?.setOnClickListener {
             findNavController().navigate(R.id.flow_step_one_dest, null, options)
