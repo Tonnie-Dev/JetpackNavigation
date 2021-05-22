@@ -19,6 +19,7 @@ package com.example.android.codelabs.navigation
 import android.os.Bundle
 import android.view.*
 import android.widget.Button
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
@@ -33,8 +34,11 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         setHasOptionsMenu(true)
+
+
         return inflater.inflate(R.layout.home_fragment, container, false)
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -55,22 +59,12 @@ class HomeFragment : Fragment() {
         val button = view.findViewById<Button>(R.id.navigate_destination_button)
         button?.setOnClickListener {
 
-            //the 2nd Arg is the args argument
-            this.findNavController().navigate(R.id.flow_step_one_dest, null)
+           findNavController(  ).navigate(HomeFragmentDirections.actionHomeDestToFlowStepOneDest(1))
         }
 
 
 
-        /*view.findViewById<Button>(R.id.navigate_destination_button)?.setOnClickListener {
-            findNavController().navigate(R.id.flow_step_one_dest, null, options)
-        }*/
 
-
-        //TODO STEP 7.2 - Update the OnClickListener to navigate using an action
-        //        view.findViewById<Button>(R.id.navigate_action_button)?.setOnClickListener(
-        //                Navigation.createNavigateOnClickListener(R.id.next_action, null)
-        //        )
-        //TODO END STEP 7.2
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
